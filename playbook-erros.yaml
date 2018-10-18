@@ -4,9 +4,11 @@
   remote_user: ansible
   become: yes
   
-  - name: ping host
-  command: ping -c1 www.uolbbb.com.jp
-  ignore_errors: yes
+  tasks:
+  
+    - name: ping host
+      command: ping -c1 www.uolbbb.com.jp
+      ignore_errors: yes
 
-  - name: remove apache mesmo depois do uolbbb.com.jp nao pingar
-  yum: name=httpd state=absent
+    - name: remove apache mesmo depois do uolbbb.com.jp nao pingar
+      yum: name=httpd state=absent
