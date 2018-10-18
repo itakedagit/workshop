@@ -1,7 +1,7 @@
 ---
 - name: Ignorando errors
   hosts: web
-  remote_user: ansible-core
+  remote_user: ansible
   become: yes
 
   - name: ping host
