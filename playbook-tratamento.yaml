@@ -5,10 +5,11 @@
   become: yes
 
   tasks:
-    
+    - name: 2
     lineinfile: dest=/etc/selinux/config regexp=^SELINUX=
     line=SELINUX=enforcing
 
+    - name: 3
     lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^Listen "
     insertafter="^#Listen " line="Listen 8080"
       
