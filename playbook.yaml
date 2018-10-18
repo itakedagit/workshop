@@ -1,8 +1,23 @@
 ---
-- hosts: all
+#- hosts: all
+#  tasks:
+#  - name: Prints various Ansible facts
+#    debug:
+#      msg: >
+#        The default IPv4 address of {{ ansible_fqdn }}
+#        is {{ ansible_default_ipv4.address }}
+ 
+- name: Segundo Playbook - trabalhando com loop
+  hosts: all
+  remote_user: ansible
+  become: yes
+  gather_facts: no
+  vars:
+   state: latest
+
   tasks:
-  - name: Prints various Ansible facts
-    debug:
-      msg: >
-        The default IPv4 address of {{ ansible_fqdn }}
-        is {{ ansible_default_ipv4.address }}
+  - name: Instalando Apache e PHP
+    yum: name={{ item }} state={{ state }}
+    with_items:
+      - mysql
+      - php
