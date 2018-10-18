@@ -1,8 +1,8 @@
 ---
 - name: Trabalhando com Condicional
- hosts: web
- remote_user: ansible
- become: yes
+  hosts: web
+  remote_user: ansible
+  become: yes
 
  tasks:
  - name: install Apache
