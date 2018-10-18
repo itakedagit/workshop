@@ -1,0 +1,14 @@
+---
+- name: Tratando arquivos Selinux e HTTPD
+  hosts: web
+  remote_user: ansible-core
+  become: yes
+
+  tasks:
+    - name: Tratando o arquivo de configuração selinux
+      lineinfile: dest=/etc/selinux/config regexp=^SELINUX=
+      line=SELINUX=enforcing
+
+    - name: Tratando o arquivo de configuração httpd
+      lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^Listen "
+      insertafter="^#Listen " line="Listen 8080"
