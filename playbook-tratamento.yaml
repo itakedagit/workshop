@@ -12,3 +12,5 @@
     - name: Tratando o arquivo de configuração httpd
       lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^Listen "
       insertafter="^#Listen " line="Listen 8080"
+      
+ #v1
