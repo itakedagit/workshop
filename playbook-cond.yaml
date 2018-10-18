@@ -3,8 +3,8 @@
   hosts: web
   remote_user: ansible
   become: yes
-
- tasks:
- - name: install Apache
-   yum: name=httpd state=removed
-   when: ansible_os_family == "RedHat"
+  
+  tasks:
+  - name: install Apache
+    yum: name=httpd state=removed
+    when: ansible_os_family == "RedHat"
