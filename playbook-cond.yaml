@@ -6,5 +6,5 @@
   
   tasks:
   - name: install Apache
-    yum: name=httpd state=removed
+    yum: name=httpd state=present
     when: ansible_os_family == "RedHat"
